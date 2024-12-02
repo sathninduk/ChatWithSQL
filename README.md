@@ -26,3 +26,6 @@ chat_with_sql = ChatWithSQL(
 data = chat_with_sql.load_data(prompt="your_prompt")
 print(data)
 ```
+
+## License
+MIT License
