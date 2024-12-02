@@ -5,3 +5,4 @@ llama-index-llms-gemini
 llama-index-llms-llama-api
 llama-index-llms-ollama
 python-dotenv
+psycopg2
