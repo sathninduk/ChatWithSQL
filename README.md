@@ -2,7 +2,6 @@
 
 **ChatWithSQL** is a Python library that bridges the gap between natural language queries and SQL databases. Designed for reliability, security, and performance, ChatWithSQL allows developers to leverage advanced Language Learning Models (LLMs) like OpenAI, Gemini, and more to retrieve database data using simple, intuitive natural language prompts.
 
----
 
 ## 🎯 Why ChatWithSQL?
 
@@ -14,7 +13,6 @@ ChatWithSQL has implemented a **schema-based validation approach** to ensure tha
 
 This unique approach positions ChatWithSQL as a leader in secure and reliable, natural language-driven SQL data retrieval.
 
----
 
 ## 🚀 Key Features
 
@@ -26,7 +24,6 @@ This unique approach positions ChatWithSQL as a leader in secure and reliable, n
 - **Database-Agnostic**: Compatible with any database supported by the URI connection format.
 - **Comprehensive Logging**: Provides detailed logs for easier debugging and monitoring.
 
----
 
 ## 📦 Installation
 
@@ -36,7 +33,6 @@ You can install ChatWithSQL using pip:
 pip install chatwithsql
 ```
 
----
 
 ## 🛠️ Setup and Usage
 
@@ -79,7 +75,6 @@ response = chat_with_sql.execute_query(prompt)
 print(response)
 ```
 
----
 
 ## 🛡️ Security by Design
 
@@ -89,7 +84,6 @@ ChatWithSQL mitigates one of the largest risks of Text-to-SQL systems: **arbitra
 2. Parameters are sanitized and validated against expected types.
 3. Arbitrary query execution by LLMs is entirely eliminated.
 
----
 
 ## 🌐 Supported LLMs
 
@@ -98,7 +92,6 @@ ChatWithSQL mitigates one of the largest risks of Text-to-SQL systems: **arbitra
 - **LlamaAPI**
 - **Ollama**
 
----
 
 ## 🧰 API Reference
 
@@ -125,7 +118,6 @@ Executes a natural language query and retrieves data.
 - **`prompt`**: Natural language request.
 - **Returns**: Query results as a dictionary.
 
----
 
 ## 📝 Query Schema Format
 
@@ -155,7 +147,6 @@ Example:
 ]
 ```
 
----
 
 ## 🐛 Logging and Debugging
 
@@ -166,22 +157,18 @@ ChatWithSQL includes extensive logging for better observability:
 
 Enable logging by configuring Python’s `logging` module.
 
----
 
 ## 🏗️ Contributing
 
 Contributions are welcome! Please submit a pull request or open an issue on our [GitHub Repository](https://github.com/sathninduk/ChatWithSQL).
 
----
 
 ## 📜 License
 
 ChatWithSQL is open-source software licensed under the MIT License.
 
----
 
 ## 🤝 Support
 
 If you have any questions or issues, feel free to contact us at [hello@bysatha.com](mailto:hello@bysatha.com) or open a GitHub issue.
 
---- 
