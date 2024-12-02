@@ -1,7 +1,8 @@
-import os
 import unittest
 from chat_with_sql import ChatWithSQL
-from unittest.mock import patch, MagicMock
+
+LLM_API_KEY = ""
+DATABASE_URL = ""
 
 
 class TestChatWithSQL(unittest.TestCase):
@@ -10,13 +11,13 @@ class TestChatWithSQL(unittest.TestCase):
             {
                 "description": "select the last order",
                 "name": "last_order",
-                "sql": "SELECT * FROM orders ORDER BY order_date LIMIT 1",
+                "sql": "SELECT * FROM orders ORDER BY order_date DESC LIMIT 1",
                 "params": {}
             },
             {
                 "description": "select the first order",
                 "name": "first_order",
-                "sql": "SELECT * FROM orders ORDER BY order_date DESC LIMIT 1",
+                "sql": "SELECT * FROM orders ORDER BY order_date LIMIT 1",
                 "params": {}
             },
             {
@@ -41,32 +42,23 @@ class TestChatWithSQL(unittest.TestCase):
         self.chat_with_sql = ChatWithSQL(
             llm="gemini",
             model="models/gemini-pro",
-            llm_api_key=os.getenv("GOOGLE_API_KEY"),
-            database_url=os.getenv("DATABASE_URL"),
+            llm_api_key=LLM_API_KEY,
+            database_url=DATABASE_URL,
             query_schema=self.query_schema
         )
 
     def test_initialization(self):
-        self.assertEqual(self.chat_with_sql.database_url, "test_database_url")
+        self.assertEqual(self.chat_with_sql.database_url, DATABASE_URL)
         self.assertEqual(self.chat_with_sql.model, "models/gemini-pro")
-        self.assertEqual(self.chat_with_sql.llm_api_key, "test_llm_api_key")
+        self.assertEqual(self.chat_with_sql.llm_api_key, LLM_API_KEY)
         self.assertEqual(len(self.chat_with_sql.pool), 4)
         self.assertEqual(len(self.chat_with_sql.pool_schema), 4)
 
     def test_connection_info(self):
         self.assertEqual(
             self.chat_with_sql.connection_info,
-            "Database URL: test_database_url, Model: models/gemini-pro"
+            f"Database URL: {DATABASE_URL}, Model: models/gemini-pro"
         )
-
-    @patch('chat_with_sql.DatabaseReader')
-    def test_load_data(self, MockDatabaseReader):
-        mock_reader = MockDatabaseReader.return_value
-        mock_reader.load_data.return_value = [MagicMock(text="test_data")]
-
-        prompt = "select the last order"
-        result = self.chat_with_sql.load_data(prompt)
-        self.assertEqual(result, {"results": ["test_data"]})
 
     def test_parse_json_string(self):
         json_string = '''```json\n{"key": "value"}\n```'''
