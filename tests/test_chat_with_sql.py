@@ -1,9 +1,13 @@
 import unittest
+import os
+from dotenv import load_dotenv
 from chat_with_sql import ChatWithSQL
 
-LLM_API_KEY = ""
-DATABASE_URL = ""
+# Load environment variables from .env file
+load_dotenv()
 
+LLM_API_KEY = os.getenv("GOOGLE_API_KEY")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 class TestChatWithSQL(unittest.TestCase):
     def setUp(self):
