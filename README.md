@@ -67,11 +67,11 @@ chat_with_sql = ChatWithSQL(
 
 ### 2. **Executing Queries**
 
-Use the `execute_query` method to process a natural language prompt and retrieve data:
+Use the `load_data` method to process a natural language prompt and retrieve data:
 
 ```python
 prompt = "Show me the details of the user with ID 5."
-response = chat_with_sql.execute_query(prompt)
+response = chat_with_sql.load_data(prompt)
 print(response)
 ```
 
@@ -113,7 +113,7 @@ ChatWithSQL(
 - **`llm_api_key`**: API key for accessing the LLM.
 - **`query_schema`**: List of schema definitions, each with `description`, `name`, `sql`, and `params`.
 
-#### Method: `execute_query(prompt: str) -> Dict[str, Any]`
+#### Method: `load_data(prompt: str) -> Dict[str, Any]`
 Executes a natural language query and retrieves data.
 - **`prompt`**: Natural language request.
 - **Returns**: Query results as a dictionary.
