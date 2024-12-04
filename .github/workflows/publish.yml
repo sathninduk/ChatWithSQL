@@ -35,9 +35,8 @@ jobs:
 
       # Create Git tag
       - name: Create and push Git tag
-        if: ${{ github.ref_name == 'main' }}
         env:
-          PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
