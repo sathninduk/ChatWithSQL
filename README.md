@@ -1,6 +1,7 @@
 # ChatWithSQL
 
 **ChatWithSQL** is a Python library that bridges the gap between natural language queries and SQL databases. Designed for reliability, security, and performance, ChatWithSQL allows developers to leverage advanced Language Learning Models (LLMs) like OpenAI, Gemini, and more to retrieve database data using simple, intuitive natural language prompts.
+![Banner.png](docs_src%2Fimages%2FBanner.png)
 
 ## 🎯 Why ChatWithSQL?
 
@@ -142,6 +143,10 @@ Example:
     }
 ]
 ```
+
+## 🗺️ Architecture
+![architecture-diagram.png](docs_src%2Fimages%2Farchitecture-diagram.png)
+
 
 ## 🐛 Logging and Debugging
 
