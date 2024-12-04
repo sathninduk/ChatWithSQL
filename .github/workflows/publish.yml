@@ -33,14 +33,6 @@ jobs:
           VERSION=$(python setup.py --version)
           echo "PACKAGE_VERSION=$VERSION" >> $GITHUB_ENV
 
-      # Create Git tag
-      - name: Create and push Git tag
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git tag -a "v$PACKAGE_VERSION" -m "Release version $PACKAGE_VERSION"
-          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} "v$PACKAGE_VERSION"
-
       # Build the package
       - name: Build package
         run: |
